@@ -56,8 +56,8 @@ class CarbonLSTMPredictor:
             Dropout(0.2),
             LSTM(32, return_sequences=False),
             Dropout(0.2),
-            Dense(16),
-            Dense(1)
+            Dense(16, activation='relu'),  # 添加ReLU激活函数
+            Dense(1)  # 输出层不需要激活函数，因为这是回归任务
         ])
 
         model.compile(optimizer='adam', loss='mse', metrics=['mae'])
