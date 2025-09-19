@@ -33,9 +33,9 @@ except ImportError as e:
     st.stop()
 
 # 页面配置
-st.set_page_config(page_title="污水处理厂碳足迹追踪系统", layout="wide", page_icon="♻️")
+st.set_page_config(page_title="污水处理厂碳足迹追踪系统", layout="wide", page_icon="🌍")
 st.title("基于碳核算-碳账户模型的污水处理厂碳足迹追踪与评估系统")
-st.markdown("### 第七届全国大学生市政环境AI＋创新实践能力大赛本科生赛道 环抱未来组")
+st.markdown("### 第七届全国大学生市政环境AI＋创新实践能力大赛-产业赛道项目")
 
 
 # 初始化session_state
@@ -1918,7 +1918,8 @@ with tab5:
 
                 col1, col2, col3 = st.columns(3)
                 with col1:
-                    unit_label = "月均" if len(prediction_df) <= 12 else "日均"
+                    # 修复：使用display_df而不是未定义的prediction_df
+                    unit_label = "月均" if len(display_df) <= 12 else "日均"
                     st.metric("平均预测值", f"{avg_prediction:.1f} kgCO2eq/{unit_label}")
                 with col2:
                     # 使用预测数据的上下界来计算区间
