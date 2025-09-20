@@ -551,3 +551,4 @@ class CarbonFactorDatabase:
     def __del__(self):
         """清理资源"""
         self._close_connection()
+
